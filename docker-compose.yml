@@ -1,0 +1,11 @@
+version: "3"
+services:
+  peerplays:
+    image: blckchnd/peerplays-beatrice:latest
+    build:
+       context: ./dkr
+    environment:
+     - ARGS=
+    volumes:
+     - ./data:/var/lib/peerplays
+
