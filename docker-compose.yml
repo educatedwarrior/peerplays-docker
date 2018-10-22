@@ -6,6 +6,9 @@ services:
        context: ./dkr
     environment:
      - ARGS=
+    ports:
+     - 2001:2001
+     - 8090:8090
     volumes:
      - ./data:/var/lib/peerplays
 
