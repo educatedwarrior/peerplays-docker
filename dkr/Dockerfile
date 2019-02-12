@@ -1,8 +1,8 @@
 FROM ubuntu:16.04 as ppy-builder
 MAINTAINER PeerPlays Witnesses
 
-ARG BRANCH_NAME=beatrice
-ARG COMMIT=3e58dc5a1120420b64cbbee51b3d9e02c624215c
+ARG BRANCH_NAME=1.0.0
+ARG COMMIT=0dc7e8b784b54ef6b75c1d00f9e881673b0edb38
 
 RUN \
         apt-get update && \
@@ -27,21 +27,17 @@ RUN \
         rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN \
-    git clone https://github.com/PBSA/peerplays.git /source  && \
+    git clone https://github.com/peerplays-network/peerplays /source  && \
     cd /source && git checkout ${BRANCH_NAME} && \
     git submodule update --init --recursive
 
 WORKDIR /source
 
-RUN rm genesis.json
-
-ADD genesis.json .
-
 RUN \
     mkdir build && cd build && \
     cmake \
         -DCMAKE_BUILD_TYPE=Release \
-        .. \ 
+        .. \
      && \
      make -j4 && \
      make install && \
