@@ -11,6 +11,7 @@ services:
    - 'PEERPLAYSD_P2P_ENDPOINT=0.0.0.0:6666'
    - 'PEERPLAYSD_PRIVATE_KEY=["TEST...","5..."]'
    - 'PEERPLAYSD_WITNESS_ID="1.6.x"'
+   - 'PEERPLAYSD_REQUIRED_PARTICIPATION=true'
    - 'PEERPLAYSD_REPLAY=Yes'   # Replays if the variable exists
   ports:
   # - "0.0.0.0:6666:6666"
