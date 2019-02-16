@@ -19,6 +19,8 @@ echo "** PEERPLAYS VERSION: ${VERSION} **"
 #   * $PEERPLAYSD_PARTIAL_OPERATIONS
 #   * $PEERPLAYSD_MAX_OPS_PER_ACCOUNT
 #   * $PEERPLAYSD_TRUSTED_NODE
+#   * $PEERPLAYSD_REQUIRED_PARTICIPATION
+#   * $PEERPLAYSD_ENABLE_STALE_PRODUCTION
 #
 
 ARGS=""
@@ -68,6 +70,14 @@ fi
 
 if [[ ! -z "$PEERPLAYSD_TRUSTED_NODE" ]]; then
     ARGS+=" --trusted-node=${PEERPLAYSD_TRUSTED_NODE}"
+fi
+
+if [[ ! -z "$PEERPLAYSD_REQUIRED_PARTICIPATION" ]]; then
+    ARGS+=" --required-participation"
+fi
+
+if [[ ! -z "$PEERPLAYSD_ENABLE_STALE_PRODUCTION" ]]; then
+    ARGS+=" --enable-stale-production"
 fi
 
 ## Copy config if not exists
